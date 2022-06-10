@@ -16,11 +16,11 @@ const LocalTime = () => {
 
   return (
     <div>
-      <Card>
-        <CardHeader title="Local time Date/Time" />
+      <Card variant="outlined">
+        <CardHeader title="Local time Date/Time"
+        subheader={time.toDateString()} />
         <CardContent>
-          <Typography variant="body1">{time.toDateString()}</Typography>
-          <Typography variant="h5">{time.toLocaleTimeString()}</Typography>
+          <Typography variant="h5" component="h3" gutterBottom>{time.toLocaleTimeString()}</Typography>
         </CardContent>
       </Card>
     </div>
