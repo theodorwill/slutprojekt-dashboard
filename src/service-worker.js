@@ -70,3 +70,20 @@ self.addEventListener('message', (event) => {
 });
 
 // Any other custom service worker logic can go here.
+const cacheName = 'apiCache';
+
+self.addEventListener('install', (event) => {
+  event.waitUntil(
+    caches.open(cacheName).then((cache) => cache.
+    addAll(['/components']))
+  )
+})
+
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches.match(event.request).then((res) => {
+      if(res) return res;
+      return fetch(event.request);
+    })
+  )
+})
