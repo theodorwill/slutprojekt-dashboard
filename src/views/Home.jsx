@@ -16,10 +16,10 @@ const Home = () => {
         spacing={0.5}
       >
         <Grid item xs={12} sm={6} md={4}>
-            <WeatherWidget />      
+          <WeatherWidget />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <LocalTime/>
+          <LocalTime />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <Paper>
