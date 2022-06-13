@@ -4,7 +4,7 @@ import CardHeader from '@mui/material/CardHeader'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 
-const JokeWidget = () => {
+const QuoteWidget = () => {
     const { data } = useFetch('https://animechan.vercel.app/api/random')
     console.log(data)
 
@@ -28,4 +28,4 @@ const JokeWidget = () => {
     )
 }
 
-export default JokeWidget
+export default QuoteWidget
