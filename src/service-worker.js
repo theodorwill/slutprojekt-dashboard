@@ -75,7 +75,7 @@ const cacheName = 'apiCache';
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(cacheName).then((cache) => cache.
-    addAll(['/components/WeatherWidget.jsx']))
+    addAll(['/components/']))
   )
 })
 

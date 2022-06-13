@@ -22,7 +22,7 @@ const WeatherWidget = () => {
         )}
         <CardContent>
           {data && (
-            <Typography variant="h5" component="h3" gutterBottom>
+            <Typography color="#d300ef" variant="h5" component="h3" gutterBottom>
               {parseFloat(kelvinToCelsius(data.main.temp)).toFixed(1) + '°C'}
             </Typography>
           )}

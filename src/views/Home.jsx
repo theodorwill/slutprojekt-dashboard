@@ -1,8 +1,7 @@
 import * as React from 'react'
-import Button from '@mui/material/Button'
 import Grid from '@mui/material/Grid'
-import Paper from '@mui/material/Paper'
 import WeatherWidget from '../components/WeatherWidget'
+import JokeWidget from '../components/JokeWidget'
 import LocalTime from '../components/LocalTime'
 
 const Home = () => {
@@ -22,9 +21,7 @@ const Home = () => {
           <LocalTime />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <Paper>
-            <Button variant="contained">hello</Button>
-          </Paper>
+          <JokeWidget />
         </Grid>
       </Grid>
     </div>

@@ -20,7 +20,7 @@ const LocalTime = () => {
         <CardHeader title="Local time Date/Time"
         subheader={time.toDateString()} />
         <CardContent>
-          <Typography variant="h5" component="h3" gutterBottom>{time.toLocaleTimeString()}</Typography>
+          <Typography color="#d300ef" variant="h5" component="h3" gutterBottom>{time.toLocaleTimeString()}</Typography>
         </CardContent>
       </Card>
     </div>
