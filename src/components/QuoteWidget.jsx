@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography'
 
 const QuoteWidget = () => {
     const { data } = useFetch('https://animechan.vercel.app/api/random')
-    console.log(data)
 
     return (
         <div>
