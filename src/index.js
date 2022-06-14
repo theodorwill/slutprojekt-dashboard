@@ -11,16 +11,13 @@ root.render(
   </React.StrictMode> 
 );
 
-(async () => {
+
   if('serviceWorker' in navigator){
-    try{
-      await navigator.serviceWorker.register('/service-worker.js')
-      console.log("Service worker registered")
-    }catch(error){
-      console.error(error)
-    }
+    navigator.serviceWorker.register('./sw.js')
+    .then((reg) => console.log('service worker registered', reg))
+    .catch((err) => console.log('service worker not registered', err))  
   }
-})()
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
