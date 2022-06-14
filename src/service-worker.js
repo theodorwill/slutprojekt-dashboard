@@ -1,8 +1,8 @@
 /* eslint-disable no-restricted-globals */
 
 const manifest = self.__WB_MANIFEST
-const staticCache = 'site-static-v1'
-const dynamicCache = 'site-dynamic-v1'
+const staticCache = 'site-static-v2'
+const dynamicCache = 'site-dynamic-v2'
 
 self.addEventListener('install', (evt) => {
   evt.waitUntil(
@@ -18,6 +18,13 @@ self.addEventListener('activate', (evt) => {
 })
 
 self.addEventListener('fetch', (evt) => {
+  if (!(evt.request.url.indexOf('http') === 0)) return;
+
+  if (evt.request.url.includes('/api.') && navigator.onLine) {
+    return
+  }
+
+
   evt.respondWith(
     caches.match(evt.request).then((cacheRes) => {
       return (
