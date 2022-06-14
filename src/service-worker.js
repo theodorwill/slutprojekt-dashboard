@@ -14,16 +14,25 @@ self.addEventListener('install', (evt) => {
 })
 
 self.addEventListener('activate', (evt) => {
-  console.log('Service worker activated')
+  evt.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys
+          .filter((key) => key !== staticCache && key !== dynamicCache)
+          .map((key) => caches.delete(key))
+      )
+    })
+  )
 })
 
 self.addEventListener('fetch', (evt) => {
-  if (!(evt.request.url.indexOf('http') === 0)) return;
-
-  if (evt.request.url.includes('/api.') && navigator.onLine) {
+  if (!(evt.request.url.indexOf('http') === 0)) {
     return
   }
 
+  if (navigator.onLine) {
+    return
+  }
 
   evt.respondWith(
     caches.match(evt.request).then((cacheRes) => {
@@ -34,6 +43,9 @@ self.addEventListener('fetch', (evt) => {
             cache.put(evt.request.url, fetchRes.clone())
             return fetchRes
           })
+        })
+        .catch((err) => {
+          return caches.match(evt.request)
         })
       )
     })
