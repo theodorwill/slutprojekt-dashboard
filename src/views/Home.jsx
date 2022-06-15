@@ -19,6 +19,30 @@ const Home = () => {
     },
     typography: {
       fontFamily: ['Quicksand', 'sans-serif'].join(','),
+    body1: {
+      '@media (min-width:600px)':{
+        fontSize: '1.4rem'
+      },
+      '@media (min-width:1920px)':{
+        fontSize: '2rem'
+      }
+    },
+    h4: {
+      '@media (min-width:600px)':{
+        fontSize: '2.5rem'
+      },
+      '@media (min-width:1920px)':{
+        fontSize: '3rem'
+      }
+    },
+    h5: {
+      '@media (min-width:600px)':{
+        fontSize: '1.7rem'
+      },
+      '@media (min-width:1920px)':{
+        fontSize: '2.5rem'
+      }
+    },
     },
   })
 
