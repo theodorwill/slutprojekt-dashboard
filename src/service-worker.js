@@ -44,9 +44,6 @@ self.addEventListener('fetch', (evt) => {
             return fetchRes
           })
         })
-        .catch((err) => {
-          return caches.match(evt.request)
-        })
       )
     })
   )

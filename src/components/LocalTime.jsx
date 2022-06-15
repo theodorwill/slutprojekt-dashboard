@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react'
-import Card from '@mui/material/Card'
-import CardHeader from '@mui/material/CardHeader'
-import CardContent from '@mui/material/CardContent'
-import Typography from '@mui/material/Typography'
+import { Card, CardHeader, CardContent, Typography } from '@mui/material/'
 
 const LocalTime = () => {
   const [time, setTime] = useState(new Date())
@@ -17,10 +14,14 @@ const LocalTime = () => {
   return (
     <div>
       <Card variant="outlined">
-        <CardHeader title="Local time Date/Time"
-        subheader={time.toDateString()} />
+        <CardHeader
+          title="Local time Date/Time"
+          subheader={time.toDateString()}
+        />
         <CardContent>
-          <Typography color="#d300ef" variant="h5" component="h3" gutterBottom>{time.toLocaleTimeString()}</Typography>
+          <Typography color="#d300ef" variant="h5" component="h3" gutterBottom>
+            {time.toLocaleTimeString()}
+          </Typography>
         </CardContent>
       </Card>
     </div>
