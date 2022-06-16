@@ -7,8 +7,7 @@ const dynamicCache = 'site-dynamic-v2'
 self.addEventListener('install', (evt) => {
   evt.waitUntil(
     caches.open(staticCache).then((cache) => {
-      console.log(manifest)
-      return cache.addAll(manifest.map((url) => url.url))
+      return cache.addAll([...manifest.map((url) => url.url), "/"])
     })
   )
 })
@@ -31,7 +30,10 @@ self.addEventListener('fetch', (evt) => {
   }
 
   if (navigator.onLine) {
-    return
+    caches.keys().then((keys)=> {
+      Promise.all(keys.filter((key) => key === dynamicCache)
+      .map((key) => caches.delete(key)))
+    })
   }
 
   evt.respondWith(
